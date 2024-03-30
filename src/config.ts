@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Anshul Sharma",
   desc: "Personal website and blog for Anshul Sharma",
   title: "Anshul Sharma",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "AS_Logo_v2.jpg",
   lightAndDarkMode: true,
   postPerPage: 8,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
