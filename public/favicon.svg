@@ -1,13 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
-  <path fill="#000" d="M22.25 4h-8.5a1 1 0 0 0-.96.73l-5.54 19.4a.5.5 0 0 0 .62.62l5.05-1.44a2 2 0 0 0 1.38-1.4l3.22-11.66a.5.5 0 0 1 .96 0l3.22 11.67a2 2 0 0 0 1.38 1.39l5.05 1.44a.5.5 0 0 0 .62-.62l-5.54-19.4a1 1 0 0 0-.96-.73Z"/>
-  <path fill="url(#gradient)" d="M18 28a7.63 7.63 0 0 1-5-2c-1.4 2.1-.35 4.35.6 5.55.14.17.41.07.47-.15.44-1.8 2.93-1.22 2.93.6 0 2.28.87 3.4 1.72 3.81.34.16.59-.2.49-.56-.31-1.05-.29-2.46 1.29-3.25 3-1.5 3.17-4.83 2.5-6-.67.67-2.6 2-5 2Z"/>
-  <defs>
-    <linearGradient id="gradient" x1="16" x2="16" y1="32" y2="24" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#000"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-	<style>
-    @media (prefers-color-scheme:dark){:root{filter:invert(100%)}}
-  </style>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" enable-background="new 0 0 2834.645 2834.646" version="1.1">
+
+ <g>
+  <title>Layer 1</title>
+  <g display="none" id="Layer_1">
+   <polygon id="svg_1" points="11.537917626253716,59.43682320166772 37.17745025940667,15.02778668177632 62.81707726957302,59.43682320166772 " stroke-miterlimit="10" stroke="#000000" fill="none" display="inline"/>
+   <polygon id="svg_2" points="27.567109038209992,50.16747099466966 37.1793261241678,33.51855632959678 46.79159185807066,50.16747099466966 " stroke-miterlimit="10" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_3" y2="50.18052" x2="63.41891" y1="46.47278" x1="63.41891" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_4" y2="65.67732" x2="22.88149" y1="63.82345" x1="19.67048" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+  </g>
+  <g display="none" id="Layer_2">
+   <line id="svg_5" y2="24.27856" x2="31.83652" y1="59.43682" x1="11.53792" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_6" y2="24.27856" x2="42.50411" y1="24.27856" x1="31.82477" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_7" y2="33.50874" x2="47.84744" y1="24.27856" x1="42.50411" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_8" y2="33.51856" x2="37.17933" y1="33.50874" x1="47.84744" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_9" y2="37.2426" x2="35.02176" y1="33.51856" x1="37.17933" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_10" y2="37.25565" x2="49.94571" y1="37.25565" x1="35.0103" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_11" y2="59.43682" x2="62.81708" y1="37.25565" x1="49.94571" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_12" y2="59.44988" x2="26.44594" y1="59.44988" x1="62.81836" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_13" y2="50.18052" x2="31.79511" y1="59.44988" x1="26.44594" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_14" y2="50.16747" x2="46.79159" y1="50.18052" x1="31.79511" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_15" y2="46.42719" x2="44.63215" y1="50.16747" x1="46.79159" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_16" y2="46.47278" x2="29.69269" y1="46.42719" x1="44.63215" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_17" y2="59.42377" x2="22.21543" y1="46.47278" x1="29.69269" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+   <line id="svg_18" y2="59.43682" x2="11.53792" y1="59.42377" x1="22.21543" stroke-miterlimit="10" stroke-width="6" stroke="#000000" fill="none" display="inline"/>
+  </g>
+  <rect y="0.16674" stroke-opacity="0" rx="4" id="svg_20" height="15.66651" width="16" x="0" stroke="#0f0f00" fill="#212737"/>
+  <g id="Layer_3">
+   <polyline fill="#ffffff" id="svg_19" points="7.435700416564941,6.7888689041137695 8.000309467315674,5.813472270965576 10.792039394378662,5.812183856964111 9.393747806549072,3.398026943206787 6.599084854125977,3.398026943206787 6.602158069610596,3.398026943206787 1.2902374267578125,12.596847534179688 4.08442497253418,12.592575073242188 6.041141033172607,9.203023910522461 9.950634479522705,9.190881729125977 10.515736103057861,10.169557571411133 6.5913214683532715,10.17463493347168 5.191501140594482,12.601972579956055 14.70976209640503,12.601972579956055 14.70942735671997,12.59855842590332 11.341131687164307,6.79398775100708 7.432701587677002,6.79398775100708 "/>
+  </g>
+ </g>
 </svg>
