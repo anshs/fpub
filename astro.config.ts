@@ -6,6 +6,7 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs"; // make sure your relative path is correct
+import partytown from '@astrojs/partytown'
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,6 +17,11 @@ export default defineConfig({
     }),
     react(),
     sitemap(),
+    partytown({
+			config: {
+			  forward: ["dataLayer.push"],
+			},
+		}),
   ],
   markdown: {
     remarkPlugins: [
