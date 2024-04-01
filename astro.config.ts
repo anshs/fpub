@@ -6,43 +6,34 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs"; // make sure your relative path is correct
-import partytown from '@astrojs/partytown'
+import partytown from '@astrojs/partytown';
+
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    react(),
-    sitemap(),
-    partytown({
-			config: {
-			  forward: ["dataLayer.push"],
-			},
-		}),
-  ],
+  integrations: [tailwind({
+    applyBaseStyles: false
+  }), react(), sitemap(), partytown({
+    config: {
+      forward: ["dataLayer.push"]
+    }
+  })],
   markdown: {
-    remarkPlugins: [
-      remarkToc,
-      //remarkReadingTime,
-      [
-        remarkCollapse,
-        {
-          test: "Table of contents",
-        },
-      ],
-    ],
+    remarkPlugins: [remarkToc,
+    //remarkReadingTime,
+    [remarkCollapse, {
+      test: "Table of contents"
+    }]],
     shikiConfig: {
       theme: "one-dark-pro",
-      wrap: true,
-    },
+      wrap: true
+    }
   },
   vite: {
     optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
+      exclude: ["@resvg/resvg-js"]
+    }
   },
-  scopedStyleStrategy: "where",
+  scopedStyleStrategy: "where"
 });
