@@ -17,9 +17,11 @@ export const LOCALE = {
 } as const;
 
 export const LOGO_IMAGE = {
-  enable: false,
+  enable: true,
   svg: true,
-  width: 216,
+  light: "logo-light.svg", // Logo for light mode
+  dark: "logo-dark.svg",   // Logo for dark mode
+  width: 72,
   height: 46,
 };
 

@@ -26,6 +26,14 @@ function setPreference() {
 function reflectPreference() {
   document.firstElementChild.setAttribute("data-theme", themeValue);
 
+  // Update logo based on theme
+  const logoImg = document.getElementById("logo-img");
+  if (logoImg) {
+    logoImg.src = themeValue === "dark" 
+      ? `/assets/logo-dark.svg`
+      : `/assets/logo-light.svg`;
+  }
+
   document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
 
   // Get a reference to the body element
@@ -65,6 +73,8 @@ window.onload = () => {
 
   // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", setThemeFeature);
+  // Ensure the correct logo is set on page load
+  reflectPreference();
 };
 
 // sync with system changes
