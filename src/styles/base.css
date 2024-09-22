@@ -140,3 +140,21 @@
     @apply outline-2 outline-offset-1 outline-skin-fill focus-visible:no-underline focus-visible:outline-dashed;
   }
 }
+
+/* General styles for the logo */
+.logo img {
+  max-height: 100%; /* Ensure the logo fits within its container */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 640px) {
+  .logo img {
+    max-width: 70%; /* Adjust the max width for mobile */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Adjust HR spacing to avoid overlapping */
+  header hr {
+    margin-top: 1rem; /* Add some space between the logo and HR */
+  }
+}
