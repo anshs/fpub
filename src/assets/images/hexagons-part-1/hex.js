@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCanvas();
 });
 
+window.onload = function() {
+    updateCanvas();
+}
 
 
 function updateCanvas() {
