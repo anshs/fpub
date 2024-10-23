@@ -17,11 +17,13 @@ export default function Datetime({
   className,
 }: Props) {
   return (
-    <div className={`flex items-center space-x-2 opacity-80 ${className}`}>
+    <div
+      className={`flex align-middle font-heading items-center space-x-2 opacity-80 ${className}`}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className={`${
-          size === "sm" ? "scale-90" : "scale-100"
+          size === "sm" ? "scale-80" : "scale-100"
         } inline-block h-6 w-6 min-w-[1.375rem] fill-skin-base`}
         aria-hidden="true"
       >
@@ -35,7 +37,9 @@ export default function Datetime({
       ) : (
         <span className="sr-only">Published:</span>
       )}
-      <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
+      <span
+        className={`italic ${size === "sm" ? "text-sm" : "text-base"} relative`}
+      >
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}
@@ -50,7 +54,17 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
     modDatetime && modDatetime > pubDatetime ? modDatetime : pubDatetime
   );
 
+  const currentYear = new Date().getFullYear();
+  const isCurrentYear = myDatetime.getFullYear() === currentYear;
+
+  // Show date without the year if it's the current year
   const date = myDatetime.toLocaleDateString(LOCALE.langTag, {
+    month: "short",
+    day: "numeric",
+    year: isCurrentYear ? undefined : "numeric",
+  });
+
+  const fullDate = myDatetime.toLocaleDateString(LOCALE.langTag, {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -63,10 +77,9 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
 
   return (
     <>
-      <time dateTime={myDatetime.toISOString()}>{date}</time>
-      <span aria-hidden="true"> | </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{time}</span>
+      <time dateTime={myDatetime.toISOString()} title={`${fullDate}, ${time}`}>
+        {date}
+      </time>
     </>
   );
 };

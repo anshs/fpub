@@ -25,6 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCanvas();
 });
 
+//For astro partial hydration
+document.addEventListener('astro:after-swap', () => {
+    cvs = document.getElementById('hexbreakout');
+    ctx = cvs.getContext('2d');
+
+    // Call the function initially and whenever the window is resized
+    resizeCanvas();
+
+    // Add event listeners for controls and window resizing
+    addEventListeners();
+
+    updateCanvas();
+});
 window.onload = function() {
     updateCanvas();
 }
@@ -115,7 +128,7 @@ function resizeCanvas() {
     cHeight = cvs.height = height * scaleFactor;
 
     // Scale the drawing context to account for the device pixel ratio
-    //ctx.scale(scaleFactor, scaleFactor);
+    ctx.scale(scaleFactor, scaleFactor);
 
     // Redraw your content (replace this with your own drawing code)
     updateCanvas(); 
@@ -230,6 +243,7 @@ function addEventListeners(){
         gridToggle.checked = showGrid;
         updateCanvas(); // Redraw canvas with or without grid
     });
+
 
     // Window resize
     window.addEventListener('resize', resizeCanvas);

@@ -54,7 +54,12 @@ module.exports = {
         transparent: "transparent",
       },
       fontFamily: {
-        mono: ["IBM Plex Mono", "monospace"],
+        body: ["IBM Plex Serif", "Times New Roman", "serif"],
+        heading: ["Roboto", "Open Sans", "sans-serif"],
+        mono: ["IBM Plex Mono", "Courier New", "monospace"],
+      },
+      fontSize: {
+        base: '1.25rem',  // Set 1.25rem as the default size for body text
       },
 
       typography: {
