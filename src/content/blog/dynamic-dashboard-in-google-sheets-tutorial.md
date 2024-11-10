@@ -12,18 +12,18 @@ tags:
   - analytics
   - tutorials
 description: In this tutorial, we will make a simple dashboard using google sheets. Create cascading drop-down menu filters. In a cascading drop-down,  the the drop-down options of one drop-down change based on the selection in another drop-down. 
-ogImage: /src/assets/images/google-sheets-dashboard/googlsheets_dashboard_banner.png
+ogImage: src/assets/images/google-sheets-dashboard/googlsheets_dashboard_banner.png
 githubLink: 
 link: https://docs.google.com/spreadsheets/d/11fV9HW1sYN5n63QN-CIRdPKHcfXtyLOYXhRlpCB6500/edit?usp=sharing
 ---
 
-![](/src/assets/images/google-sheets-dashboard/googlsheets_dashboard.gif)
+![](@assets/images/google-sheets-dashboard/googlsheets_dashboard.gif)
 
 *Cascading Menus: The second drop-down (Country) updates based on the selection of the first drop-down (Region)*
 
 Imagine you are a start to mid-level analyst or manager at a highly data driven organization. Part of your routine work is to deal with the same set of data, churn actionable insights from it and report it to a broader team. If expensive BI tools like Tableau and Qlikview are overkill for your requirement, then read further.
 
-With the power of [Googl](https://www.google.com/sheets/about/)[e](https://www.google.com/sheets/about/) [Sheets](https://www.google.com/sheets/about/), anyone can create functional and dynamic dashboards which can be shared with a number of people for consumption. In this tutorial, we will make a simple dashboard using google sheets.
+With the power of [Google Sheets](https://www.google.com/sheets/about/), anyone can create functional and dynamic dashboards which can be shared with a number of people for consumption. In this tutorial, we will make a simple dashboard using google sheets.
 
 **Note:** You can create a similar dash in [MS Excel](https://products.office.com/en-in/excel) as well with slight modifications,  
 but we will cover the various excel equivalents for Google Sheets functions in a later tutorial.
@@ -61,14 +61,14 @@ Getting Started
 ---------------
 
 * Copy and paste the sample data into a back-end sheet. As a good practice, I prefix my back-end data sheets with "DATA\_" and also give them a unique sheet color.
-   ![](/src/assets/images/google-sheets-dashboard/raw_data.png)
+   ![](@assets/images/google-sheets-dashboard/raw_data.png)
 
 * Also create a new tab and call it "Summary" where all the action will happen.
 
 Define Values, Dimensions and Filters
 -------------------------------------
 
-![](/src/assets/images/google-sheets-dashboard/dashboard_structure.png)
+![](@assets/images/google-sheets-dashboard/dashboard_structure.png)
 
 * For the rest of the tutorial, we will use the following terms:
 * **Values:** The values/metrics which you want to see aggregated. Eg. Number of Units Sold, Total Revenues , Profit per Unit etc.
@@ -94,7 +94,7 @@ Puzzled by the varied use of the $ dollar sign in the formulas?
 Read more about cell referencing in Google Sheets [here](https://edu.gcfglobal.org/en/googlespreadsheets/types-of-cell-references/1/)
 
 * The last step is to populate these results in our *Region* drop-down on cell *D3*. For this, we select the cell *D3*, go to Data > Data Validation, under *Criteria*, select *List from a range*, and select the the entire range of values in Column A (*'Summary'!A5:A100*). Make sure the "Show drop-down list in cell" option is checked. Once done, the list will start appearing in in cell *D3* as a drop-down. Notice that blanks are ignored in the drop-down list and it shows up in same order (Alphabetical).
-* ![](/src/assets/images/google-sheets-dashboard/drop_down.png)
+* ![](@assets/images/google-sheets-dashboard/drop_down.png)
 * Now, we use a similar formula to populate the values of our second drop-down (*Country*) in cell *B6* of the summary sheet, but with **one major difference**: The values for Country drop-down should change based on what is selected in the *Region* drop-down.
 * For this, we make use of the FILTER function. The sequence is as follows: First we filter for *Country* column values in *RAW_DATA* sheet conditional on the values in the *Region* column on the same sheet. Once we have the filtered Country values based on our selected Region, we apply the functions similar to our previous step to make our results unique and then sort them alphabetically
 * Finally, for completeness I wrap our output inside an [IFERROR](https://support.google.com/docs/answer/3093304?hl=en) function to ensure the *Country* list does not throw a Filter error when "ALL" is selected under *Region*. In case of such an error, I make the *Country* list empty. I also add a "ALL" static value in cell *B5* (will come to its use later)
@@ -148,7 +148,7 @@ In cell E6
 
 * Add additional conditional formatting to highlight errors in drop-down values. In our example, if the user enters a value which is not part of the drow-down list, the color of the drop-down will turn from mild yellow to red to highlight the error.
   * For this, select the drop-downs at cell D3 and E3, go to Format > Conditional Formatting. Add something like this:
-  * ![](/src/assets/images/google-sheets-dashboard/formatting_1.png)![](/src/assets/images/google-sheets-dashboard/formatting_2.png)
+  * ![](@assets/images/google-sheets-dashboard/formatting_1.png)![](/src/assets/images/google-sheets-dashboard/formatting_2.png)
   * `=ISERROR(MATCH($E$3,$B$5:$B$100,0))`
 
 * Before sharing your new dashboard with others for consumption, you should [protect the sheets](https://support.google.com/docs/answer/1218656?co=GENIE.Platform%3DDesktop&hl=en) so that other users cannot modify any formulas in the sheet. While you are protecting your sheet, add the Filter drop-down cells (*D3* and *E3*) under exceptions (*Except certain cells*). This way, the only cells the users can change in the sheet are the ones that you want them to change.
