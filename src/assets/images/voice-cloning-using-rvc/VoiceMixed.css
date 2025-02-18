@@ -1,0 +1,71 @@
+/* Container is responsive with a max width of 500px */
+.mixer-container {
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  /* Make the SVG responsive and transparent */
+  .responsive-svg {
+    width: 100%;
+    height: auto;
+    background: transparent;
+  }
+  
+  /* Flat Play/Stop Button styling */
+  button#startButton {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 20px;
+  }
+  button#startButton:hover {
+    background-color: #005bb5;
+  }
+  button#startButton:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Joystick pulse animation */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  #joystick.pulse {
+    transform-origin: center;
+    animation: pulse 2s infinite;
+  }
+  
+  /* Sound wave animation */
+  @keyframes soundWaveAnim {
+    0% {
+      stroke-opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      stroke-opacity: 0;
+      transform: scale(1.15);
+    }
+  }
+  .sound-wave {
+    fill: none;
+    stroke: #444;
+    stroke-width: 2;
+    transform-origin: center;
+    animation: soundWaveAnim 2s infinite;
+  }
+  

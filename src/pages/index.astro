@@ -9,6 +9,7 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
+import Substack from "@components/substack.astro"
 
 const posts = await getCollection("blog");
 
@@ -109,8 +110,10 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </svg>
       </LinkButton>
     </div>
+    <section id="substack">
+      <Substack />
+    </section>
   </main>
-
   <Footer />
 </Layout>
 
