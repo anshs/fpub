@@ -1,10 +1,10 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://anshulsharma.in/", // replace this with your deployed domain
-  author: "Anshul Sharma",
-  desc: "Personal website and blog of Anshul Sharma",
-  title: "Anshul Sharma",
+  website: "https://freeformanthology.com/", // replace this with your deployed domain
+  author: "FF Architect",
+  desc: "An anthology of tech, cinema, history and more",
+  title: "Free Form Anthology",
   ogImage: "AS_Logo_v2.jpg",
   lightAndDarkMode: true,
   postPerPage: 8,
