@@ -10,7 +10,7 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<header>
+<header id="main-header">
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
@@ -18,11 +18,11 @@ const { activeNav } = Astro.props;
         {
           LOGO_IMAGE.enable ? (
             <img
-              src={`/assets/${LOGO_IMAGE.light}`} // Default to light logo
+              src={`/assets/${LOGO_IMAGE.light}`}
               alt={SITE.title}
               width={LOGO_IMAGE.width}
               height={LOGO_IMAGE.height}
-              id = "logo-img"
+              id="logo-img"
             />
           ) : (
             SITE.title
@@ -83,7 +83,8 @@ const { activeNav } = Astro.props;
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="scale-125 sm:scale-100"
-                ><path
+              >
+                <path
                   d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
                 ></path>
               </svg>
@@ -121,70 +122,122 @@ const { activeNav } = Astro.props;
   #skip-to-content {
     @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
   }
+  
+  /* Header container with scroll behavior */
+  #main-header {
+    @apply fixed w-full z-50 transition-all duration-300 bg-white dark:bg-gray-900;
+    transform: translateY(0);
+  }
+  
+  #main-header.scrolled-down {
+    transform: translateY(-100%);
+  }
+  
+  #main-header.at-top {
+    @apply bg-transparent;
+  }
+  
   .nav-container {
     @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
   }
+  
   .top-nav-wrap {
     @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+    transition: all 0.3s ease;
   }
+  
+  /* Logo styling with transitions */
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+    @apply py-1 text-xl font-semibold sm:text-2xl transition-all duration-300;
   }
+  
+  #main-header.at-top .logo {
+    @apply text-center absolute left-1/2 transform -translate-x-1/2;
+    top: 1.5rem;
+  }
+  
+  #main-header.at-top .top-nav-wrap {
+    @apply justify-center;
+    padding-top: 5rem;
+  }
+  
+  #logo-img {
+    transition: transform 0.3s ease;
+  }
+  
+  #main-header.at-top #logo-img {
+    transform: scale(1.5);
+  }
+  
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;
   }
+  
   .hamburger-menu svg {
     @apply h-6 w-6 scale-125 fill-skin-base;
   }
-
+  
   nav {
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
+  
   nav ul {
     @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
   }
+  
   nav ul li {
     @apply col-span-2 flex items-center justify-center;
   }
+  
   nav ul li a {
     @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
   }
+  
   nav ul li:nth-last-child(2) a {
     @apply w-auto;
   }
+  
   nav ul li:nth-last-child(1),
   nav ul li:nth-last-child(2) {
     @apply col-span-1;
   }
+  
   nav a.active {
     @apply underline decoration-wavy decoration-2 underline-offset-4;
   }
+  
   nav a.active svg {
     @apply fill-skin-accent;
   }
-
+  
   nav button {
     @apply p-1;
   }
+  
   nav button svg {
     @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
   }
+  
   #theme-btn {
     @apply p-3 sm:p-1;
   }
+  
   #theme-btn svg {
     @apply scale-125 hover:rotate-12 sm:scale-100;
   }
-
+  
   .menu-icon line {
     @apply transition-opacity duration-75 ease-in-out;
   }
+  
   .menu-icon .close {
     opacity: 0;
   }
+  
   .menu-icon.is-active .line {
     @apply opacity-0;
   }
+  
   .menu-icon.is-active .close {
     @apply opacity-100;
   }
@@ -209,10 +262,44 @@ const { activeNav } = Astro.props;
     });
   }
 
+  // Add scroll behavior
+  function handleScroll() {
+    const header = document.getElementById("main-header");
+    let lastScrollY = window.scrollY;
+    
+    // Initialize header state
+    if (window.scrollY <= 10) {
+      header.classList.add("at-top");
+    }
+    
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+      
+      // Toggle "at-top" class based on scroll position
+      if (currentScrollY <= 10) {
+        header.classList.add("at-top");
+      } else {
+        header.classList.remove("at-top");
+      }
+      
+      // Toggle "scrolled-down" class based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        header.classList.add("scrolled-down");
+      } else {
+        header.classList.remove("scrolled-down");
+      }
+      
+      lastScrollY = currentScrollY;
+    });
+  }
+
+  // Initialize both functions
   toggleNav();
-
+  handleScroll();
+  
   // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", toggleNav);
+  document.addEventListener("astro:after-swap", () => {
+    toggleNav();
+    handleScroll();
+  });
 </script>
-
-
