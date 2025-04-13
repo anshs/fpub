@@ -36,8 +36,6 @@ const { activeNav } = Astro.props;
                 id="logo-img"
                 src={`/assets/${LOGO_IMAGE.light}`}
                 alt={SITE.title}
-                width={LOGO_IMAGE.width}
-                height={LOGO_IMAGE.height}
               />
             ) : (
               SITE.title
@@ -146,19 +144,17 @@ const { activeNav } = Astro.props;
   }
 
   #navbar {
-  @apply transition-all duration-300 ease-in-out;
-  position: relative;
+  @apply z-20 transition-transform bg-skin-fill duration-300 ease-in-out sm:w-full;
   transform: translateY(0);
-  z-index: 50;
   }
 
   #navbar.sticky-visible {
-    @apply fixed top-0 right-0 bg-skin-fill bg-opacity-90 backdrop-blur-sm shadow-md sm:w-full;
+    @apply fixed top-0 right-0 shadow-md bg-opacity-90 backdrop-blur-sm;
     transform: translateY(0);
   }
 
   #navbar.sticky-hidden {
-    @apply fixed top-0 opacity-0;
+    @apply fixed top-0 right-0 duration-100;
     transform: translateY(-100%);
   }
   
@@ -166,11 +162,16 @@ const { activeNav } = Astro.props;
     @apply transition-none
   }
 
+  #navbar.nav-overlay {
+    @apply fixed top-0 left-0 w-screen h-screen bg-opacity-90 backdrop-blur-sm;
+  }
+
   .nav-container {
-    @apply relative mx-auto flex max-w-6xl flex-col items-center justify-between sm:flex-row;
+    @apply mx-auto flex max-w-6xl flex-col items-center justify-between sm:flex-row;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  
   
   
   /* Logo styling with transitions */

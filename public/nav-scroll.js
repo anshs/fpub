@@ -2,6 +2,9 @@ function toggleNav() {
     const menuBtn = document.querySelector(".hamburger-menu");
     const menuIcon = document.querySelector(".menu-icon");
     const menuItems = document.querySelector("#menu-items");
+    const navbar = document.querySelector("#navbar");
+    const htmlElement = document.documentElement; 
+    const body = document.body;
   
     if (!menuBtn || !menuIcon || !menuItems) return;
   
@@ -13,6 +16,16 @@ function toggleNav() {
         "aria-label",
         menuExpanded ? "Open Menu" : "Close Menu"
       );
+      if (!menuExpanded) {
+        navbar.classList.add("nav-overlay","overscroll-contain");
+        body.classList.add('overflow-hidden');
+        htmlElement.classList.add('overflow-hidden');
+      }
+      else {
+        navbar.classList.remove("nav-overlay","overscroll-contain");
+        body.classList.remove('overflow-hidden');
+        htmlElement.classList.remove('overflow-hidden');
+      }
       menuItems.classList.toggle("display-none");
     });
   }
@@ -32,7 +45,7 @@ function toggleNav() {
     function updateNavbar() {
       const currentScroll = window.scrollY;
       const scrollDown = currentScroll > lastScrollY;
-      const scrollUp = currentScroll < lastScrollY;
+      const scrollUp = currentScroll < lastScrollY-2;
       const rect = scrollBottom.getBoundingClientRect();
       const navdim = navbar.getBoundingClientRect();
   
@@ -48,7 +61,7 @@ function toggleNav() {
         navbar.classList.add("sticky-hidden");
         navbar.classList.add("sticky-glitch");
       } 
-      else if (scrollUp && rect.bottom > navdim.height) {
+      if (rect.bottom > navdim.height) {
         navbar.classList.remove("sticky-visible", "sticky-hidden","sticky-glitch");
         isSticky = false;
       }
