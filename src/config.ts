@@ -22,7 +22,7 @@ export const LOGO_IMAGE = {
   light: "logo-light.svg", // Logo for light mode
   dark: "logo-dark.svg",   // Logo for dark mode
   width: 72,
-  height: 46,
+  height: 48,
 };
 
 export const SOCIALS: SocialObjects = [
