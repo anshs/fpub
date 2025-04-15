@@ -2,6 +2,7 @@
 import { LOGO_IMAGE, SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
+import Socials from "@components/Socials.astro";
 
 export interface Props {
   activeNav?: "posts" | "tags" | "about" | "search";
@@ -42,6 +43,9 @@ const { activeNav } = Astro.props;
             )
           }
         </a>
+        <div class="social-wrapper">
+          <Socials />
+        </div>
         <nav id="nav-menu">
           <button
             class="hamburger-menu focus-outline"
@@ -140,7 +144,7 @@ const { activeNav } = Astro.props;
   
   /* Navbar with scroll behavior */
   #navplaceholder {
-    @apply h-14;
+    @apply items-center h-14 sm:flex;
   }
 
   #navbar {
@@ -163,7 +167,11 @@ const { activeNav } = Astro.props;
   }
 
   #navbar.nav-overlay {
-    @apply fixed top-0 left-0 w-screen h-screen bg-opacity-90 backdrop-blur-sm;
+    @apply fixed top-0 left-0 w-screen h-screen overflow-auto bg-opacity-90 backdrop-blur-sm;
+  }
+
+  #navbar.sticky-visible:not(.nav-overlay) .social-wrapper, #navbar.sticky-hidden:not(.nav-overlay) .social-wrapper{
+    @apply hidden;
   }
 
   .nav-container {
@@ -187,7 +195,10 @@ const { activeNav } = Astro.props;
     /*transition: transform 0.3s ease;*/
   }
   .small-logo{
-    @apply collapse sm:visible;
+    @apply hidden invisible sm:visible sm:shrink-0;
+  }
+  #navbar.sticky-visible .small-logo, #navbar.sticky-hidden .small-logo{
+    @apply sm:block;
   }
   
   .small-logo img {
@@ -202,7 +213,10 @@ const { activeNav } = Astro.props;
   }
   
   .hamburger-menu {
-    @apply self-end  p-2 sm:hidden;
+    @apply self-end p-2 sm:hidden;
+  }
+  #navbar.nav-overlay .hamburger-menu{
+    @apply fixed top-0 right-0;
   }
   
   .hamburger-menu svg {
